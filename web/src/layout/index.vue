@@ -2,6 +2,7 @@
     <NLayout class="h-full">
         <Header ref="headerRef" />
         <NLayout has-sider :style="{ height: nLayoutHeight + 'px' }">
+            <Sider />
             <NLayoutContent has-sider>
                 <RouterView />
             </NLayoutContent>
@@ -13,6 +14,7 @@
 import { ref, onMounted } from 'vue'
 import { NLayout, NLayoutContent } from 'naive-ui'
 import Header from './Header/index.vue'
+import Sider from './Sider/index.vue'
 
 const headerRef = ref()
 const nLayoutHeight = ref(0)

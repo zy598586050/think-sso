@@ -13,27 +13,27 @@ export const useTheme = () => {
         if (isDark.value) {
             return {
                 common: {
-                    primaryColor: '#c5f955',
-                    primaryColorHover: '#c5f955',
-                    primaryColorPressed: '#66afd3',
-                    primaryColorSuppl: 'rgb(56, 137, 197)'
+                    primaryColor: '#63E2B7FF',
+                    primaryColorHover: '#7FE7C4FF',
+                    primaryColorPressed: '#5ACEA7FF',
+                    primaryColorSuppl: 'rgb(42, 148, 125)'
                 },
                 Switch: {
-                    railColorActive: '#c5f955',
-                    loadingColor: '#c5f955'
+                    railColorActive: '#2A947DFF',
+                    loadingColor: '#2A947DFF'
                 }
             }
         } else {
             return {
                 common: {
-                    primaryColor: '#2080f0',
-                    primaryColorHover: '#4098fc',
-                    primaryColorPressed: '#1060c9',
-                    primaryColorSuppl: '#4098fc'
+                    primaryColor: '#18A058FF',
+                    primaryColorHover: '#36AD6AFF',
+                    primaryColorPressed: '#0C7A43FF',
+                    primaryColorSuppl: '#36AD6AFF'
                 },
                 Switch: {
-                    railColorActive: '#2080f0',
-                    loadingColor: '#2080f0'
+                    railColorActive: '#18A058FF',
+                    loadingColor: '#18A058FF'
                 }
             }
         }

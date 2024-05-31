@@ -2,7 +2,9 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
 import { h } from 'vue'
 import { createDiscreteApi, NIcon } from 'naive-ui'
-import { ChatbubbleEllipsesOutline } from '@vicons/ionicons5'
+import { UserCertification } from '@vicons/carbon'
+import { ApiApp } from '@vicons/tabler'
+import { PersonOutline } from '@vicons/ionicons5'
 import { useUserStore } from '@/store'
 
 const { loadingBar } = createDiscreteApi(['loadingBar'])
@@ -10,29 +12,29 @@ const { loadingBar } = createDiscreteApi(['loadingBar'])
 // 菜单配置
 export const menuList = [
     {
-        path: '/generate',
-        name: 'generate',
+        path: '/user',
+        name: 'user',
         meta: {
-            title: '生成',
-            icon: () => h(NIcon, null, { default: () => h(ChatbubbleEllipsesOutline) })
+            title: '用户管理',
+            icon: () => h(NIcon, null, { default: () => h(UserCertification) })
         },
-        component: () => import('@/views/index/index.vue')
+        component: () => import('@/views/user/index.vue')
     },
     {
-        path: '/discover',
-        name: 'discover',
+        path: '/application',
+        name: 'application',
         meta: {
-            title: '发现',
-            icon: () => h(NIcon, null, { default: () => h(ChatbubbleEllipsesOutline) })
+            title: '应用管理',
+            icon: () => h(NIcon, null, { default: () => h(ApiApp) })
         },
-        component: () => import('@/views/discover/index.vue')
+        component: () => import('@/views/application/index.vue')
     },
     {
         path: '/my',
         name: 'my',
         meta: {
-            title: '我的',
-            icon: () => h(NIcon, null, { default: () => h(ChatbubbleEllipsesOutline) })
+            title: '个人中心',
+            icon: () => h(NIcon, null, { default: () => h(PersonOutline) })
         },
         component: () => import('@/views/my/index.vue')
     }
@@ -44,7 +46,7 @@ const routes: RouteRecordRaw[] = [
         path: '/',
         name: 'layout',
         component: Layout,
-        redirect: '/generate',
+        redirect: '/user',
         children: menuList
     },
     {
@@ -77,23 +79,22 @@ const router = createRouter({
     routes
 })
 
-router.beforeEach(async (to, _, next) => {
-    document.title = `${to.meta.title} - sky3DGen`
+router.beforeEach((to, _, next) => {
+    document.title = `${to.meta.title} - ${import.meta.env.VITE_APP_TITLE}`
     loadingBar.start()
     const token = useUserStore().userInfo.token
     // 当用户未登录时重定向到登录页面
     if (!token) {
-        // if (to.path !== '/login') {
-        //     next('/login')
-        // } else {
-        //     next()
-        // }
-        next()
+        if (to.path !== '/login') {
+            next('/login')
+        } else {
+            next()
+        }
     }
     // 当用户已登录时重定向到主页
     else {
         if (to.path === '/login') {
-            next('/generate')
+            next('/user')
         } else {
             next()
         }

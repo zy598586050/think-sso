@@ -1,10 +1,9 @@
 <template>
     <NLayoutHeader bordered class="flex justify-between items-center px-4 py-3">
         <div class="flex items-center">
-            <span class="ml-2 font-bold">sky3Dgen</span>
+            <span class="ml-2 font-bold">{{ logoTitle }}</span>
         </div>
         <div class="flex items-center">
-            <TextMenu v-model:value="activeKey" :options="textMenuOptions" @update:value="selectTextMenu" />
             <NSwitch v-model:value="isDark" @update:value="handleUpdateValue">
                 <template #checked-icon>
                     <NIcon :component="MoonOutline" />
@@ -27,8 +26,6 @@ import { SunnyOutline, MoonOutline } from '@vicons/ionicons5'
 import { useAppStore, useUserStore } from '@/store'
 import { useRouter } from 'vue-router'
 import { useTheme } from '@/hooks/useTheme'
-import TextMenu from '@/components/TextMenu.vue'
-import { menuList } from '@/router'
 
 
 const { isDark } = useTheme()
@@ -36,7 +33,7 @@ const dialog = useDialog()
 const appStore = useAppStore()
 const userStore = useUserStore()
 const router = useRouter()
-const activeKey = computed(() => appStore.menuActive)
+const logoTitle = computed(() => import.meta.env.VITE_APP_TITLE)
 
 const menuOptions = ref([
     {
@@ -49,20 +46,6 @@ const menuOptions = ref([
     }
 ])
 
-const textMenuOptions = computed(() => menuList.map((item, index) => {
-    return {
-        icon: item.meta.icon,
-        label: item.meta.title,
-        key: index + 1,
-        path: item.path
-    }
-}))
-
-const selectTextMenu = (key: number) => {
-    appStore.menuActive = key
-    router.push(textMenuOptions.value.find((item) => item.key === key)?.path as string)
-}
-
 const handleUpdateValue = (value: boolean) => {
     appStore.theme = value ? 'dark' : 'light'
 }
@@ -70,8 +53,8 @@ const handleUpdateValue = (value: boolean) => {
 const handleSelect = (key: string) => {
     switch (key) {
         case 'my':
+            appStore.menuActive = 3
             router.push('/my')
-            //appStore.setMenuActive(4)
             break;
         case 'logout':
             dialog.warning({

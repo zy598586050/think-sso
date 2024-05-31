@@ -1,8 +1,7 @@
 <template>
     <div class="page h-screen flex flex-col justify-center items-center">
         <div class="flex items-center py-10">
-            <!-- <img class="w-5" src="@/assets/logo-g.svg" alt="RPGPT" /> -->
-            <span class="ml-2 font-bold text-xl text-slate-700">RPGPT</span>
+            <span class="ml-2 font-bold text-xl text-slate-700">{{ logoTitle }}</span>
         </div>
         <NTabs type="segment" animated class="w-[350px]">
             <NTabPane name="account" tab="账号登录">
@@ -82,6 +81,7 @@ const formAccount = reactive({
 })
 const sendDisabled = ref<boolean>(false)
 const isLoading = ref<boolean>(false)
+const logoTitle = computed(() => import.meta.env.VITE_APP_TITLE)
 
 const isClick = computed(() => sendDisabled.value || !/^1[3-9]\d{9}$/.test(formPhone.phone))
 

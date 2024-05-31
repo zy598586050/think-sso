@@ -5,7 +5,7 @@ import { useUserStore } from '@/store'
 const { dialog, message } = createDiscreteApi(['dialog', 'message'])
 
 const service = axios.create({
-	baseURL: '/api/v1',
+	baseURL: import.meta.env.VITE_API_URL,
 	timeout: 30000,
 	headers: { 'Content-Type': 'application/json;charset=utf-8' }
 })

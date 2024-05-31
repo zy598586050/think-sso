@@ -9,7 +9,7 @@ interface STATE {
 export const useAppStore = defineStore('appStore', {
     state: (): STATE => {
         return {
-            theme: 'dark',
+            theme: 'light',
             menuActive: 1
         }
     },

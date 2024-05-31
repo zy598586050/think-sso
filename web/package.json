@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build:prod": "vite build --mode production",
     "preview": "vite preview"
   },
   "dependencies": {
     "@types/node": "^20.12.11",
     "@vicons/carbon": "^0.12.0",
     "@vicons/ionicons5": "^0.12.0",
+    "@vicons/tabler": "^0.12.0",
     "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
     "less": "^4.2.0",
