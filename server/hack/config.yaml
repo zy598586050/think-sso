@@ -1,4 +1,7 @@
-
-# CLI tool, only in development environment.
-# https://goframe.org/pages/viewpage.action?pageId=3673173
+# CLI.
 gfcli:
+  gen:
+    dao:
+      - link:            "mysql:think-sso:dcGLEpj5JZReztBw@tcp(123.56.82.75:3306)/think-sso"
+        descriptionTag:  true
+        noModelComment:  true

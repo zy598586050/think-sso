@@ -2,12 +2,11 @@ package cmd
 
 import (
 	"context"
+	_ "github.com/gogf/gf/contrib/drivers/mysql/v2"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
-
-	"think-sso/internal/controller"
 )
 
 var (
@@ -19,9 +18,7 @@ var (
 			s := g.Server()
 			s.Group("/", func(group *ghttp.RouterGroup) {
 				group.Middleware(ghttp.MiddlewareHandlerResponse)
-				group.Bind(
-					controller.Hello,
-				)
+				group.Bind()
 			})
 			s.Run()
 			return nil

@@ -1,11 +1,30 @@
 server:
-  address:     ":8000"
+  address:     ":8369"
   openapiPath: "/api.json"
   swaggerPath: "/swagger"
 
 logger:
   level : "all"
   stdout: true
+
+# 数据库
+database:
+  logger:
+    level:   "all"
+    stdout:  true
+    Path: "resource/log/sql"
+
+  default:
+    link:   "mysql:think-sso:dcGLEpj5JZReztBw@tcp(123.56.82.75:3306)/think-sso?charset=utf8mb4&parseTime=true&loc=Local"
+    debug:  true
+    charset: "utf8mb4" #数据库编码
+    dryRun: false #空跑
+    maxIdle: 10 #连接池最大闲置的连接数
+    maxOpen: 10 #连接池最大打开的连接数
+    maxLifetime: "30s" #(单位秒)连接对象可重复使用的时间长度
+    createdAt: "create_time"
+    updatedAt: "update_time"
+    deletedAt: "delete_time"
 
 
 
