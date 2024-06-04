@@ -1,0 +1,34 @@
+2024-06-04 11:29:02.650 [DEBU] {dc4b21246eafd51797a6f00866a44cd9} [22148 ms] [default] [think-sso] [rows:11 ] SHOW FULL COLUMNS FROM `user`
+2024-06-04 11:29:02.683 [DEBU] {dc4b21246eafd51797a6f00866a44cd9} [ 26 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-04 11:29:02.689 [DEBU] {dc4b21246eafd51797a6f00866a44cd9} [  5 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-04 11:29:03.329 [DEBU] {dc4b21246eafd51797a6f00866a44cd9} [637 ms] [default] [think-sso] [rows:0  ] SELECT `id`,`name`,`phone`,`email`,`password`,`code`,`code_time`,`appids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='1234569')) AND `delete_time` IS NULL LIMIT 1
+2024-06-04 11:29:50.114 [DEBU] {b09cd20b7eafd517b0e2992452381500} [1302 ms] [default] [think-sso] [rows:11 ] SHOW FULL COLUMNS FROM `user`
+2024-06-04 11:29:50.344 [DEBU] {b09cd20b7eafd517b0e2992452381500} [226 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-04 11:29:50.354 [DEBU] {b09cd20b7eafd517b0e2992452381500} [  7 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-04 11:29:50.371 [DEBU] {b09cd20b7eafd517b0e2992452381500} [ 15 ms] [default] [think-sso] [rows:0  ] SELECT `id`,`name`,`phone`,`email`,`password`,`code`,`code_time`,`appids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='1234569')) AND `delete_time` IS NULL LIMIT 1
+2024-06-04 14:37:30.917 [DEBU] {f0070d2ebcb9d517caf6be4bc456a1a6} [127 ms] [default] [think-sso] [rows:11 ] SHOW FULL COLUMNS FROM `user`
+2024-06-04 14:37:30.927 [DEBU] {f0070d2ebcb9d517caf6be4bc456a1a6} [  8 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE `delete_time` IS NULL
+2024-06-04 14:40:05.819 [DEBU] {b4277b44e0b9d5176ee99e4de172a3ca} [ 34 ms] [default] [think-sso] [rows:11 ] SHOW FULL COLUMNS FROM `user`
+2024-06-04 14:40:05.825 [DEBU] {b4277b44e0b9d5176ee99e4de172a3ca} [  5 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE `delete_time` IS NULL
+2024-06-04 14:40:05.832 [DEBU] {b4277b44e0b9d5176ee99e4de172a3ca} [  6 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-04 14:40:05.840 [DEBU] {b4277b44e0b9d5176ee99e4de172a3ca} [  7 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`phone`,`email`,`app_ids`,`create_time`,`update_time` FROM `user` WHERE `delete_time` IS NULL LIMIT 0,10
+2024-06-04 14:44:48.442 [DEBU] {143eff1122bad517db03b9018a61a4bc} [ 34 ms] [default] [think-sso] [rows:11 ] SHOW FULL COLUMNS FROM `user`
+2024-06-04 14:44:48.451 [DEBU] {143eff1122bad517db03b9018a61a4bc} [  7 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE `delete_time` IS NULL
+2024-06-04 14:44:48.458 [DEBU] {143eff1122bad517db03b9018a61a4bc} [  7 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-04 14:44:48.464 [DEBU] {143eff1122bad517db03b9018a61a4bc} [  6 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`phone`,`email`,`app_ids`,`create_time`,`update_time` FROM `user` WHERE `delete_time` IS NULL LIMIT 0,10
+2024-06-04 14:52:04.793 [DEBU] {980dc1aa87bad517554b490a05ca876f} [ 32 ms] [default] [think-sso] [rows:11 ] SHOW FULL COLUMNS FROM `user`
+2024-06-04 14:52:04.800 [DEBU] {980dc1aa87bad517554b490a05ca876f} [  6 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE `delete_time` IS NULL
+2024-06-04 14:52:04.807 [DEBU] {980dc1aa87bad517554b490a05ca876f} [  6 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-04 14:52:04.814 [DEBU] {980dc1aa87bad517554b490a05ca876f} [  6 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`phone`,`email`,`app_ids`,`create_time`,`update_time` FROM `user` WHERE `delete_time` IS NULL LIMIT 0,10
+2024-06-04 15:06:45.680 [DEBU] {085c21c354bbd517bb165329de9c75c1} [ 42 ms] [default] [think-sso] [rows:11 ] SHOW FULL COLUMNS FROM `user`
+2024-06-04 15:06:45.698 [DEBU] {085c21c354bbd517bb165329de9c75c1} [ 16 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE `delete_time` IS NULL
+2024-06-04 15:06:45.715 [DEBU] {085c21c354bbd517bb165329de9c75c1} [ 16 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-04 15:06:45.724 [DEBU] {085c21c354bbd517bb165329de9c75c1} [  8 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`phone`,`email`,`app_ids`,`create_time`,`update_time` FROM `user` WHERE `delete_time` IS NULL LIMIT 0,10
+2024-06-04 15:08:14.816 [DEBU] {1c746a8469bbd5171953050049d30e40} [ 36 ms] [default] [think-sso] [rows:11 ] SHOW FULL COLUMNS FROM `user`
+2024-06-04 15:08:14.823 [DEBU] {1c746a8469bbd5171953050049d30e40} [  6 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE `delete_time` IS NULL
+2024-06-04 15:08:14.831 [DEBU] {1c746a8469bbd5171953050049d30e40} [  7 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-04 15:08:14.838 [DEBU] {1c746a8469bbd5171953050049d30e40} [  6 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`phone`,`email`,`app_ids`,`create_time`,`update_time` FROM `user` WHERE `delete_time` IS NULL LIMIT 0,10
+2024-06-04 15:16:32.652 [DEBU] {9c84d16dddbbd517b1b65b160831422a} [ 35 ms] [default] [think-sso] [rows:11 ] SHOW FULL COLUMNS FROM `user`
+2024-06-04 15:16:32.663 [DEBU] {9c84d16dddbbd517b1b65b160831422a} [  8 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE `delete_time` IS NULL
+2024-06-04 15:16:32.671 [DEBU] {9c84d16dddbbd517b1b65b160831422a} [  7 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-04 15:16:32.679 [DEBU] {9c84d16dddbbd517b1b65b160831422a} [  7 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`phone`,`email`,`app_ids`,`create_time`,`update_time` FROM `user` WHERE `delete_time` IS NULL LIMIT 0,10

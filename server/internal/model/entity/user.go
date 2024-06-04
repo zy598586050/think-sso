@@ -17,7 +17,7 @@ type User struct {
 	Password   string      `json:"password"   description:"密码"`
 	Code       int         `json:"code"       description:"短信验证码"`
 	CodeTime   *gtime.Time `json:"codeTime"   description:"验证码发送时间"`
-	Appids     string      `json:"appids"     description:"用户关联的应用"`
+	AppIds     string      `json:"appIds"     description:"用户关联的应用"`
 	CreateTime *gtime.Time `json:"createTime" description:"创建时间"`
 	UpdateTime *gtime.Time `json:"updateTime" description:"修改时间"`
 	DeleteTime *gtime.Time `json:"deleteTime" description:"删除时间"`

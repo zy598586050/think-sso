@@ -7,6 +7,14 @@ logger:
   level : "all"
   stdout: true
 
+# jwtToken
+jwt:
+  signe: "ThinkOSS-SIGNE"
+  exp: 30
+  excludePaths:
+    - "/api/v1/login/email"
+    - "/api/v1/login/phone"
+
 # 数据库
 database:
   logger:
@@ -25,6 +33,13 @@ database:
     createdAt: "create_time"
     updatedAt: "update_time"
     deletedAt: "delete_time"
+
+# Redis
+redis:
+  # 单实例配置示例1
+  default:
+    address: 127.0.0.1:6379
+    db:      1
 
 
 

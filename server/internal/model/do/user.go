@@ -19,7 +19,7 @@ type User struct {
 	Password   interface{} // 密码
 	Code       interface{} // 短信验证码
 	CodeTime   *gtime.Time // 验证码发送时间
-	Appids     interface{} // 用户关联的应用
+	AppIds     interface{} // 用户关联的应用
 	CreateTime *gtime.Time // 创建时间
 	UpdateTime *gtime.Time // 修改时间
 	DeleteTime *gtime.Time // 删除时间

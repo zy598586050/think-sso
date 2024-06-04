@@ -27,7 +27,7 @@ type UserColumns struct {
 	Password   string // 密码
 	Code       string // 短信验证码
 	CodeTime   string // 验证码发送时间
-	Appids     string // 用户关联的应用
+	AppIds     string // 用户关联的应用
 	CreateTime string // 创建时间
 	UpdateTime string // 修改时间
 	DeleteTime string // 删除时间
@@ -42,7 +42,7 @@ var userColumns = UserColumns{
 	Password:   "password",
 	Code:       "code",
 	CodeTime:   "code_time",
-	Appids:     "appids",
+	AppIds:     "app_ids",
 	CreateTime: "create_time",
 	UpdateTime: "update_time",
 	DeleteTime: "delete_time",
