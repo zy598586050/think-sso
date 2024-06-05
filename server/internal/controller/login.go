@@ -5,8 +5,9 @@ import (
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	"think-sso/api/v1"
+	"think-sso/internal/model"
 	"think-sso/internal/service"
-	"time"
+	"think-sso/utility"
 )
 
 var (
@@ -19,18 +20,26 @@ func (c *cLogin) EmailLogin(ctx context.Context, req *v1.EmailLoginReq) (res *v1
 	user, err := service.User().GetUserByEmailPassword(ctx, req)
 	if user != nil {
 		res = &v1.LoginRes{
-			Id:    user.Id,
-			Name:  user.Name,
-			Phone: user.Phone,
-			Email: user.Email,
+			User: model.User{
+				Id:         user.Id,
+				Name:       user.Name,
+				Avatar:     user.Avatar,
+				Phone:      user.Phone,
+				Email:      user.Email,
+				AppIds:     user.AppIds,
+				CreateTime: user.CreateTime,
+				UpdateTime: user.UpdateTime,
+			},
 		}
-		token, err := service.Token().CreateToken(ctx, res)
-		if err != nil {
-			return nil, err
-		}
-		g.RequestFromCtx(ctx).Cookie.SetCookie("token", token, "/", "", g.Cfg().MustGet(ctx, "jwt.exp").Duration()*time.Minute)
+		err = service.Token().CreateToken(ctx, &res.User)
 	} else {
 		err = gerror.New("密码错误")
 	}
+	return
+}
+
+func (c *cLogin) Logout(ctx context.Context, req *v1.LogoutReq) (res *v1.LogoutRes, err error) {
+	token, _ := utility.GetAuthorization(g.RequestFromCtx(ctx))
+	err = service.Token().RemoveToken(ctx, token)
 	return
 }

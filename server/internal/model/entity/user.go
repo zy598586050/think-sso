@@ -12,6 +12,7 @@ import (
 type User struct {
 	Id         int         `json:"id"         description:""`
 	Name       string      `json:"name"       description:"用户名"`
+	Avatar     string      `json:"avatar"     description:"头像"`
 	Phone      string      `json:"phone"      description:"手机号"`
 	Email      string      `json:"email"      description:"邮箱"`
 	Password   string      `json:"password"   description:"密码"`

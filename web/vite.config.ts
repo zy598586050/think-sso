@@ -44,8 +44,11 @@ export default defineConfig((mode: ConfigEnv) => {
 			open: Boolean(env.VITE_OPEN),
       proxy: {
         '/api': {
-          target: 'http://127.0.0.1:5999',
-          changeOrigin: true
+          target: 'http://127.0.0.1:8369',
+          changeOrigin: true,
+          cookieDomainRewrite: {
+            '*': ''
+          }
         }
       }
     }

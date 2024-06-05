@@ -6,5 +6,5 @@ type PageReq struct {
 }
 
 type Author struct {
-	Authorization string `p:"Authorization" in:"header" dc:"Bearer {{token}}" v:"required#请携带Authorization"`
+	Authorization string `p:"Authorization" in:"header" dc:"Bearer {{token}}"`
 }

@@ -8,6 +8,7 @@ import (
 	"github.com/gogf/gf/v2/text/gstr"
 	"net/http"
 	"think-sso/internal/service"
+	"think-sso/utility"
 )
 
 type sMiddleware struct{}
@@ -22,9 +23,9 @@ func New() *sMiddleware {
 
 // DefaultHandlerResponse is the default implementation of HandlerResponse.
 type DefaultHandlerResponse struct {
-	Code    int         `json:"code"    dc:"Error code"`
-	Message string      `json:"message" dc:"Error message"`
-	Data    interface{} `json:"data"    dc:"Result data for certain request according API definition"`
+	Code    int         `json:"code"    dc:"错误码"`
+	Message string      `json:"message" dc:"消息"`
+	Data    interface{} `json:"data"    dc:"内容"`
 }
 
 func (s *sMiddleware) CORS(r *ghttp.Request) {
@@ -36,10 +37,26 @@ func (s *sMiddleware) Auth(r *ghttp.Request) {
 	ctx := r.GetCtx()
 	excludePaths := g.Cfg().MustGet(ctx, "jwt.excludePaths").Strings()
 	for _, p := range excludePaths {
-		if gstr.Equal(r.Request.URL.Path, gstr.TrimLeft(p, "/")) {
+		if gstr.Equal(r.Request.URL.Path, p) {
 			r.Middleware.Next()
 			return
 		}
+	}
+	token, err := utility.GetAuthorization(r)
+	if err != nil {
+		r.Response.WriteJson(&DefaultHandlerResponse{
+			Code:    gcode.CodeNotAuthorized.Code(),
+			Message: err.Error(),
+		})
+		r.ExitAll()
+	}
+	err = service.Token().CheckToken(ctx, token)
+	if err != nil {
+		r.Response.WriteJson(&DefaultHandlerResponse{
+			Code:    gcode.CodeNotAuthorized.Code(),
+			Message: err.Error(),
+		})
+		r.ExitAll()
 	}
 	r.Middleware.Next()
 }

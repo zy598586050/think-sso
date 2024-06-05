@@ -7,13 +7,15 @@ package service
 
 import (
 	"context"
-	v1 "think-sso/api/v1"
+	"think-sso/internal/model"
 )
 
 type (
 	IToken interface {
-		CreateToken(ctx context.Context, user *v1.LoginRes) (encryptToken string, err error)
-		ValidateToken(ctx context.Context, token string) (err error)
+		CreateToken(ctx context.Context, user *model.User) (err error)
+		ParseJwt(ctx context.Context, token string) (*model.JwtUser, error)
+		CheckToken(ctx context.Context, token string) (err error)
+		RemoveToken(ctx context.Context, token string) (err error)
 	}
 )
 

@@ -19,8 +19,8 @@ var (
 			s.Group("/api/v1", func(group *ghttp.RouterGroup) {
 				group.Middleware(
 					service.Middleware().CORS,
-					service.Middleware().Auth,
-					service.Middleware().MiddlewareHandlerResponse)
+					service.Middleware().MiddlewareHandlerResponse,
+					service.Middleware().Auth)
 				group.Bind(
 					controller.Login,
 					controller.User)

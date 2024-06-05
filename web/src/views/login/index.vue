@@ -4,11 +4,11 @@
             <span class="ml-2 font-bold text-xl text-slate-700">{{ logoTitle }}</span>
         </div>
         <NTabs type="segment" animated class="w-[350px]">
-            <NTabPane name="account" tab="账号登录">
-                <NForm ref="formAccountRef" :model="formAccount" label-placement="left" label-width="auto"
-                    :rules="rulesAccount" class="mt-1">
+            <NTabPane name="Email" tab="账号登录">
+                <NForm ref="formEmailRef" :model="formEmail" label-placement="left" label-width="auto"
+                    :rules="rulesEmail" class="mt-1">
                     <NFormItem path="email">
-                        <NInput v-model:value="formAccount.email" placeholder="请输入邮箱" clearable>
+                        <NInput v-model:value="formEmail.email" placeholder="请输入邮箱" clearable>
                             <template #prefix>
                                 <NIcon>
                                     <MailOutline />
@@ -17,7 +17,7 @@
                         </NInput>
                     </NFormItem>
                     <NFormItem path="password">
-                        <NInput v-model:value="formAccount.password" placeholder="请输入密码" type="password" clearable
+                        <NInput v-model:value="formEmail.password" placeholder="请输入密码" type="password" clearable
                             show-password-on="mousedown">
                             <template #prefix>
                                 <NIcon>
@@ -68,20 +68,26 @@
 import { reactive, ref, computed } from 'vue'
 import { NForm, NFormItem, NInput, NInputGroup, NButton, NCountdown, FormInst, CountdownProps, NIcon, FormItemRule, NTabs, NTabPane } from 'naive-ui'
 import { PhonePortraitOutline, MailOutline, LockOpenOutline } from '@vicons/ionicons5'
+import { LoginEmail } from '@/api/user'
+import { getQueryParam, getCookie } from '@/utils'
+import { useUserStore } from '@/store'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const formPhoneRef = ref<FormInst | null>(null)
-const formAccountRef = ref<FormInst | null>(null)
+const formEmailRef = ref<FormInst | null>(null)
 const formPhone = reactive({
     phone: '',
     code: ''
 })
-const formAccount = reactive({
+const formEmail = reactive({
     email: '',
     password: ''
 })
 const sendDisabled = ref<boolean>(false)
 const isLoading = ref<boolean>(false)
 const logoTitle = computed(() => import.meta.env.VITE_APP_TITLE)
+const userStore = useUserStore()
 
 const isClick = computed(() => sendDisabled.value || !/^1[3-9]\d{9}$/.test(formPhone.phone))
 
@@ -110,7 +116,7 @@ const rulesPhone = reactive({
     ]
 })
 
-const rulesAccount = reactive({
+const rulesEmail = reactive({
     email: [
         {
             required: true,
@@ -145,9 +151,22 @@ const sendSMS = () => {
 
 const handleLogin = (type: number) => {
     if (type === 1) {
-        formAccountRef.value?.validate((error) => {
+        formEmailRef.value?.validate((error) => {
             if (error) return
             isLoading.value = true
+            LoginEmail({
+                email: formEmail.email,
+                password: formEmail.password
+            }).then((result) => {
+                isLoading.value = false
+                userStore.setUserInfo(result?.data)
+                const redirect_url = getQueryParam('redirect_url')
+                if (redirect_url) {
+                    window.location.href = redirect_url + `&think-sso-token=${getCookie('think-sso-token')}`
+                } else {
+                    router.push('/user')
+                }
+            })
         })
     } else {
         formPhoneRef.value?.validate((error) => {

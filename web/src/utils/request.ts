@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { createDiscreteApi } from 'naive-ui'
 import { useUserStore } from '@/store'
+import { getCookie, deleteCookie } from '@/utils'
 
 const { dialog, message } = createDiscreteApi(['dialog', 'message'])
 
@@ -12,7 +13,9 @@ const service = axios.create({
 
 service.interceptors.request.use(
 	(config) => {
-		config.headers['Authorization'] = `Bearer ${useUserStore().userInfo.token}`
+		if (getCookie('think-sso-token')) {
+			config.headers['Authorization'] = `Bearer ${getCookie('think-sso-token')}`
+		}
 		return config
 	},
 	(error) => {
@@ -24,10 +27,9 @@ service.interceptors.request.use(
 service.interceptors.response.use(
 	(response) => {
 		// 对响应数据做点什么
-		return response.data
-	},
-	(error) => {
-		if (error.response?.status === 401) {
+		const res = response?.data
+		const code = response?.data?.code
+		if (code === 61) {
 			dialog.warning({
 				title: '提示',
 				content: '登录状态已过期，请重新登录',
@@ -37,12 +39,26 @@ service.interceptors.response.use(
 				closeOnEsc: false,
 				onPositiveClick: () => {
 					useUserStore().clearUserInfo()
+					deleteCookie('think-sso-token')
 					location.href = '/'
 				}
 			})
-			return
+		} else if (code !== 0) {
+			message.error(res.message)
+			return Promise.reject(new Error(res.message))
+		} else {
+			return res
 		}
-		message.error(error.response?.data?.message || error.response?.data || error.message)
+	},
+	(error) => {
+		if (error.message.indexOf('timeout') != -1) {
+			message.error('网络超时');
+		} else if (error.message == 'Network Error') {
+			message.error('网络连接错误');
+		} else {
+			if (error.response?.data) message.error(error.response.statusText);
+			else message.error('接口路径找不到');
+		}
 		return Promise.reject(error);
 	}
 )

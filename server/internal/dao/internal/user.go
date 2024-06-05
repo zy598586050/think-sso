@@ -22,6 +22,7 @@ type UserDao struct {
 type UserColumns struct {
 	Id         string //
 	Name       string // 用户名
+	Avatar     string // 头像
 	Phone      string // 手机号
 	Email      string // 邮箱
 	Password   string // 密码
@@ -37,6 +38,7 @@ type UserColumns struct {
 var userColumns = UserColumns{
 	Id:         "id",
 	Name:       "name",
+	Avatar:     "avatar",
 	Phone:      "phone",
 	Email:      "email",
 	Password:   "password",

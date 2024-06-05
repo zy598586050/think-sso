@@ -1,11 +1,11 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
 import { h } from 'vue'
 import { createDiscreteApi, NIcon } from 'naive-ui'
 import { UserCertification } from '@vicons/carbon'
 import { ApiApp } from '@vicons/tabler'
 import { PersonOutline } from '@vicons/ionicons5'
-import { useUserStore } from '@/store'
+import { getCookie, getQueryParam } from '@/utils'
 
 const { loadingBar } = createDiscreteApi(['loadingBar'])
 
@@ -75,28 +75,32 @@ const routes: RouteRecordRaw[] = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes
 })
 
 router.beforeEach((to, _, next) => {
     document.title = `${to.meta.title} - ${import.meta.env.VITE_APP_TITLE}`
     loadingBar.start()
-    const token = useUserStore().userInfo.token
-    // 当用户未登录时重定向到登录页面
-    if (!token) {
-        if (to.path !== '/login') {
-            next('/login')
+    const token = getCookie('think-sso-token')
+    const redirect_url = getQueryParam('redirect_url')
+    if (token) {
+        if (redirect_url) {
+            window.location.href = redirect_url + `&think-sso-token=${token}`
         } else {
-            next()
+            if (to.path === '/login') {
+                next('/user')
+            } else {
+                next()
+            }
         }
-    }
-    // 当用户已登录时重定向到主页
-    else {
+    } else {
         if (to.path === '/login') {
-            next('/user')
-        } else {
+            // 不需要校验的路由直接放行渲染
             next()
+        } else {
+            // 需要校验的都去登录页
+            next('/login')
         }
     }
 })

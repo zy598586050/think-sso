@@ -14,6 +14,7 @@ type User struct {
 	g.Meta     `orm:"table:user, do:true"`
 	Id         interface{} //
 	Name       interface{} // 用户名
+	Avatar     interface{} // 头像
 	Phone      interface{} // 手机号
 	Email      interface{} // 邮箱
 	Password   interface{} // 密码

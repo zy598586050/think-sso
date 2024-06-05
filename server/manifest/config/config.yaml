@@ -9,7 +9,8 @@ logger:
 
 # jwtToken
 jwt:
-  signe: "ThinkOSS-SIGNE"
+  prefix: "ThinkSSO:"
+  signe: "ThinkSSO-SIGNE"
   exp: 30
   excludePaths:
     - "/api/v1/login/email"

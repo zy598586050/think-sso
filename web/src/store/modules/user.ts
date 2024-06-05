@@ -4,7 +4,8 @@ interface User {
     id?: number;
     name: string;
     avatar: string;
-    token?: string;
+    phone: string;
+    email: string;
 }
 
 interface STATE {
@@ -18,7 +19,8 @@ export const useUserStore = defineStore('userStore', {
                 id: 0,
                 name: '默认昵称',
                 avatar: 'http://ai-game-hk.oss-cn-hongkong.aliyuncs.com/common/hao.jiangg/Datasets/Object3D/Avatar/1.webp',
-                token: ''
+                phone: '',
+                email: ''
             }
         }
     },
@@ -34,7 +36,8 @@ export const useUserStore = defineStore('userStore', {
                 id: 0,
                 name: '默认昵称',
                 avatar: 'http://ai-game-hk.oss-cn-hongkong.aliyuncs.com/common/hao.jiangg/Datasets/Object3D/Avatar/1.webp',
-                token: ''
+                phone: '',
+                email: ''
             }
         }
     },
