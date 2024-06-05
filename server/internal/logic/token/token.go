@@ -42,7 +42,7 @@ func (s *sToken) CreateToken(ctx context.Context, user *model.User) (err error) 
 		utility.ErrIsNil(ctx, err, "user结构体转换失败")
 		prefix := g.Cfg().MustGet(ctx, "jwt.prefix").String()
 		g.Redis().SetEX(ctx, prefix+token, userJson, g.Cfg().MustGet(ctx, "jwt.exp").Int64()*60)
-		g.RequestFromCtx(ctx).Cookie.SetCookie("think-sso-token", token, "", "/", time.Duration(g.Cfg().MustGet(ctx, "jwt.exp").Int())*time.Minute+8*time.Hour)
+		g.RequestFromCtx(ctx).Cookie.SetCookie("think-sso-token", token, "", "/", time.Duration(g.Cfg().MustGet(ctx, "jwt.exp").Int())*time.Minute)
 	})
 	return
 }
