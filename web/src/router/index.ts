@@ -6,6 +6,7 @@ import { UserCertification } from '@vicons/carbon'
 import { ApiApp } from '@vicons/tabler'
 import { PersonOutline } from '@vicons/ionicons5'
 import { getCookie, getQueryParam } from '@/utils'
+import { GetCode } from '@/api/user'
 
 const { loadingBar } = createDiscreteApi(['loadingBar'])
 
@@ -86,7 +87,9 @@ router.beforeEach((to, _, next) => {
     const redirect_url = getQueryParam('redirect_url')
     if (token) {
         if (redirect_url) {
-            window.location.href = redirect_url + `&think-sso-token=${token}`
+            GetCode().then((result) => {
+                window.location.href = redirect_url + `${redirect_url.includes('?') ? '&' : '?'}code=${result.data.code}`
+            })
         } else {
             if (to.path === '/login') {
                 next('/user')
@@ -103,6 +106,7 @@ router.beforeEach((to, _, next) => {
             next('/login')
         }
     }
+    // B 有token，正常访问 无token,看有没有code,有code执行登录，无code去授权页授权，然后回来登录得到token
 })
 
 router.afterEach(() => {

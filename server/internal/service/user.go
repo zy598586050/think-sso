@@ -14,6 +14,7 @@ import (
 
 type (
 	IUser interface {
+		GetUserById(ctx context.Context, id int) (res *entity.User, err error)
 		GetUserByEmailPassword(ctx context.Context, req *v1.EmailLoginReq) (res *entity.User, err error)
 		GetUserList(ctx context.Context, req *v1.UserListReq) (total int, userList []*model.User, err error)
 	}

@@ -23,6 +23,11 @@ func New() *sUser {
 	return &sUser{}
 }
 
+func (s *sUser) GetUserById(ctx context.Context, id int) (res *entity.User, err error) {
+	err = dao.User.Ctx(ctx).Where(dao.User.Columns().Id, id).Scan(&res)
+	return
+}
+
 func (s *sUser) GetUserByEmailPassword(ctx context.Context, req *v1.EmailLoginReq) (res *entity.User, err error) {
 	err = g.Try(ctx, func(ctx context.Context) {
 		userCount, _ := dao.User.Ctx(ctx).Where(dao.User.Columns().Email, req.Email).Count()

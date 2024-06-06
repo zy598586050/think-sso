@@ -18,6 +18,21 @@ export const deleteCookie = (name: string) => {
 
 // 从URL中获取参数
 export const getQueryParam = (name: string) => {
-    const urlParams = new URLSearchParams(window.location.search)
-    return urlParams.get(name)
+    // 定义正则表达式用于匹配参数
+    const regex = new RegExp(`[?&]${name}=([^&#]*)`, 'i')
+    
+    // 优先从 URL 的查询字符串中查找参数
+    const searchResults = window.location.search.match(regex)
+    if (searchResults) {
+        return decodeURIComponent(searchResults[1])
+    }
+    
+    // 如果查询字符串中没有找到参数，再从哈希片段中查找
+    const hashResults = window.location.hash.match(regex)
+    if (hashResults) {
+        return decodeURIComponent(hashResults[1])
+    }
+    
+    // 如果两个位置都没有找到参数，返回 null
+    return null
 }

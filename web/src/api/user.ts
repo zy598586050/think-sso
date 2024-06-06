@@ -9,6 +9,14 @@ export const LoginEmail = (data: Object) => {
     })
 }
 
+// 获取Code
+export const GetCode = () => {
+    return request({
+        url: '/code',
+        method: 'POST'
+    })
+}
+
 // 退出登录
 export const Logout = (data: Object) => {
     return request({
