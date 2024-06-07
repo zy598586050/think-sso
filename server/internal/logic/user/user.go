@@ -2,6 +2,7 @@ package user
 
 import (
 	"context"
+	"github.com/gogf/gf/v2/crypto/gmd5"
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	v1 "think-sso/api/v1"
@@ -34,7 +35,9 @@ func (s *sUser) GetUserByEmailPassword(ctx context.Context, req *v1.EmailLoginRe
 		if userCount <= 0 {
 			utility.ErrIsNil(ctx, gerror.New("用户不存在"))
 		}
-		err = dao.User.Ctx(ctx).Where(dao.User.Columns().Email, req.Email).Where(dao.User.Columns().Password, req.Password).Scan(&res)
+		salt := g.Cfg().MustGet(ctx, "jwt.salt").String()
+		password, _ := gmd5.EncryptString(salt + req.Password)
+		err = dao.User.Ctx(ctx).Where(dao.User.Columns().Email, req.Email).Where(dao.User.Columns().Password, password).Scan(&res)
 	})
 	return
 }

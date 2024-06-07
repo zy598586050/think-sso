@@ -68,7 +68,7 @@
 import { reactive, ref, computed } from 'vue'
 import { NForm, NFormItem, NInput, NInputGroup, NButton, NCountdown, FormInst, CountdownProps, NIcon, FormItemRule, NTabs, NTabPane } from 'naive-ui'
 import { PhonePortraitOutline, MailOutline, LockOpenOutline } from '@vicons/ionicons5'
-import { LoginEmail } from '@/api/user'
+import { LoginEmail, GetCode } from '@/api/user'
 import { getQueryParam, getCookie } from '@/utils'
 import { useUserStore } from '@/store'
 import { useRouter } from 'vue-router'
@@ -162,7 +162,9 @@ const handleLogin = (type: number) => {
                 userStore.setUserInfo(result?.data)
                 const redirect_url = getQueryParam('redirect_url')
                 if (redirect_url) {
-                    window.location.href = redirect_url + `&think-sso-token=${getCookie('think-sso-token')}`
+                    GetCode().then(res => {
+                        window.location.href = redirect_url + `${redirect_url.includes('?') ? '&' : '?'}code=${res.data.code}`
+                    })
                 } else {
                     router.push('/user')
                 }

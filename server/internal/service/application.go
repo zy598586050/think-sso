@@ -7,12 +7,11 @@ package service
 
 import (
 	"context"
-	v1 "think-sso/api/v1"
 )
 
 type (
 	IApplication interface {
-		HasApp(ctx context.Context, req *v1.CheckAuthReq) (err error)
+		HasApp(ctx context.Context, AppId string, AppSecret string) (err error)
 	}
 )
 

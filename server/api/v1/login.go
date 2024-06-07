@@ -19,8 +19,10 @@ type PhoneLoginReq struct {
 }
 
 type CodeLoginReq struct {
-	g.Meta `path:"/login/code" tags:"授权登录" method:"post" summary:"授权登录"`
-	Code   string `json:"code"`
+	g.Meta    `path:"/login/code" tags:"授权登录" method:"post" summary:"授权登录"`
+	Code      string `p:"code" v:"required#code不能为空"`
+	AppId     string `p:"appId" v:"required#appId不能为空"`
+	AppSecret string `p:"AppSecret" v:"required#AppSecret不能为空"`
 }
 
 type CodeReq struct {
@@ -48,13 +50,10 @@ type LogoutRes struct {
 }
 
 type CheckAuthReq struct {
-	g.Meta    `path:"/check/auth" tags:"验证权限" method:"post" summary:"验证权限"`
-	AppId     string `p:"appId" v:"required#appId不能为空"`
-	AppSecret string `p:"AppSecret" v:"required#AppSecret不能为空"`
+	g.Meta `path:"/check/auth" tags:"验证权限" method:"get" summary:"验证权限"`
 	common.Author
 }
 
 type CheckAuthRes struct {
-	g.Meta  `mime:"application/json"`
-	IsLogin bool `json:"is_login"`
+	g.Meta `mime:"application/json"`
 }

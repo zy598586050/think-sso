@@ -1,0 +1,77 @@
+2024-06-07 10:38:28.715 [DEBU] {bc26bf956e98d6178cc7fa2a8a77a6c3} [100 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 10:38:28.736 [DEBU] {bc26bf956e98d6178cc7fa2a8a77a6c3} [ 14 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 10:40:54.461 [DEBU] {d81360889098d61790c7fa2ab7a20b52} [ 41 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 10:40:54.477 [DEBU] {d81360889098d61790c7fa2ab7a20b52} [ 14 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 10:41:30.780 [DEBU] {f083c3fd9898d6173b26ca3e1fa9e3dc} [ 29 ms] [default] [think-sso] [rows:8  ] SHOW FULL COLUMNS FROM `application`
+2024-06-07 10:41:30.795 [DEBU] {f083c3fd9898d6173b26ca3e1fa9e3dc} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 10:43:26.805 [DEBU] {14b5e100b498d617356c6433aea794cf} [ 38 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 10:44:49.610 [DEBU] {58aec148c798d617366c6433f748ee10} [ 34 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 10:47:27.005 [DEBU] {10aeb8edeb98d617376c6433a552dac2} [ 42 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 10:50:21.663 [DEBU] {1cdc0a661499d617201f8c62ddd6050c} [882 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 10:51:22.167 [DEBU] {d862cbae2299d617b109521f96533726} [ 37 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 10:51:53.540 [DEBU] {702170fc2999d617b8d02128930eaf16} [ 42 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 10:53:28.681 [DEBU] {300be1164099d617f48c2b254945a078} [250 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 10:54:31.897 [DEBU] {28c556db4e99d617f58c2b25469e6a19} [ 41 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 10:54:31.910 [DEBU] {28c556db4e99d617f58c2b25469e6a19} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE ((`app_id`='wx60adef96f04c9ed5') AND (`app_secret`='1cded5a39b1e4172406997a9b0388165')) AND `delete_time` IS NULL
+2024-06-07 10:55:32.249 [DEBU] {7cffa7e85c99d617f68c2b2540919687} [ 40 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 10:55:32.265 [DEBU] {7cffa7e85c99d617f68c2b2540919687} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE ((`app_id`='wx60adef96f04c9ed5') AND (`app_secret`='1cded5a39b1e4172406997a9b0388165')) AND `delete_time` IS NULL
+2024-06-07 11:05:59.132 [DEBU] {d83a24deee99d617df6b4872cc3b86d8} [ 34 ms] [default] [think-sso] [rows:12 ] SHOW FULL COLUMNS FROM `user`
+2024-06-07 11:05:59.148 [DEBU] {d83a24deee99d617df6b4872cc3b86d8} [ 15 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 11:05:59.155 [DEBU] {d83a24deee99d617df6b4872cc3b86d8} [  6 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-07 11:05:59.169 [DEBU] {d83a24deee99d617df6b4872cc3b86d8} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 11:15:43.591 [ERRO] {0ce082bb6f9ad617e76b4872ef5c9612} [31024 ms] [default] [think-sso] [rows:0  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+Error: context canceled 
+Stack:
+1.  think-sso/internal/logic/user.(*sUser).GetUserByEmailPassword.func1
+    C:/Users/59858/Desktop/k8s/think-sso/server/internal/logic/user/user.go:33
+2.  think-sso/internal/logic/user.(*sUser).GetUserByEmailPassword
+    C:/Users/59858/Desktop/k8s/think-sso/server/internal/logic/user/user.go:32
+3.  think-sso/internal/controller.(*cLogin).EmailLogin
+    C:/Users/59858/Desktop/k8s/think-sso/server/internal/controller/login.go:23
+4.  think-sso/internal/logic/middleware.(*sMiddleware).Auth
+    C:/Users/59858/Desktop/k8s/think-sso/server/internal/logic/middleware/middleware.go:41
+5.  think-sso/internal/logic/middleware.(*sMiddleware).MiddlewareHandlerResponse
+    C:/Users/59858/Desktop/k8s/think-sso/server/internal/logic/middleware/middleware.go:65
+6.  think-sso/internal/logic/middleware.(*sMiddleware).CORS
+    C:/Users/59858/Desktop/k8s/think-sso/server/internal/logic/middleware/middleware.go:33
+
+2024-06-07 11:16:03.189 [DEBU] {f898e2827b9ad617e86b487211ce5786} [ 34 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 11:16:03.201 [DEBU] {f898e2827b9ad617e86b487211ce5786} [ 11 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 15:06:11.562 [DEBU] {883298850aa7d617ba12f30a2a69aad4} [ 40 ms] [default] [think-sso] [rows:12 ] SHOW FULL COLUMNS FROM `user`
+2024-06-07 15:06:11.595 [DEBU] {883298850aa7d617ba12f30a2a69aad4} [ 32 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 15:06:11.625 [DEBU] {883298850aa7d617ba12f30a2a69aad4} [ 29 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-07 15:06:11.662 [DEBU] {883298850aa7d617ba12f30a2a69aad4} [ 35 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 16:54:44.697 [DEBU] {a439e5faf6acd617c69b0e46186f1187} [ 37 ms] [default] [think-sso] [rows:12 ] SHOW FULL COLUMNS FROM `user`
+2024-06-07 16:54:44.713 [DEBU] {a439e5faf6acd617c69b0e46186f1187} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 16:54:44.720 [DEBU] {a439e5faf6acd617c69b0e46186f1187} [  6 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-07 16:54:44.737 [DEBU] {a439e5faf6acd617c69b0e46186f1187} [ 16 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 16:55:11.449 [DEBU] {20292d37fdacd617c99b0e46f1149fa7} [  7 ms] [default] [think-sso] [rows:8  ] SHOW FULL COLUMNS FROM `application`
+2024-06-07 16:55:11.464 [DEBU] {20292d37fdacd617c99b0e46f1149fa7} [ 14 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 16:55:11.477 [DEBU] {20292d37fdacd617c99b0e46f1149fa7} [ 11 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE ((`app_id`='wx60adef96f04c9ed5') AND (`app_secret`='1cded5a39b1e4172406997a9b0388165')) AND `delete_time` IS NULL
+2024-06-07 16:56:38.906 [DEBU] {c002c29111add61744f78b40edb0632e} [ 43 ms] [default] [think-sso] [rows:8  ] SHOW FULL COLUMNS FROM `application`
+2024-06-07 16:56:38.921 [DEBU] {c002c29111add61744f78b40edb0632e} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 16:56:38.954 [DEBU] {c002c29111add61744f78b40edb0632e} [ 31 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE ((`app_id`='wx60adef96f04c9ed5') AND (`app_secret`='1cded5a39b1e4172406997a9b0388165')) AND `delete_time` IS NULL
+2024-06-07 16:57:03.479 [DEBU] {b8c95b4c17add61747f78b405537d954} [ 14 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE (`app_id`='wx60adef96f04c9ed5') AND `delete_time` IS NULL
+2024-06-07 16:57:03.494 [DEBU] {b8c95b4c17add61747f78b405537d954} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `application` WHERE ((`app_id`='wx60adef96f04c9ed5') AND (`app_secret`='1cded5a39b1e4172406997a9b0388165')) AND `delete_time` IS NULL
+2024-06-07 17:32:35.479 [DEBU] {0c7b00b007afd61756ea4038fb6571c6} [ 37 ms] [default] [think-sso] [rows:12 ] SHOW FULL COLUMNS FROM `user`
+2024-06-07 17:32:35.496 [DEBU] {0c7b00b007afd61756ea4038fb6571c6} [ 15 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 17:32:35.503 [DEBU] {0c7b00b007afd61756ea4038fb6571c6} [  7 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-07 17:32:35.516 [DEBU] {0c7b00b007afd61756ea4038fb6571c6} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 17:37:10.832 [DEBU] {6822b5cb47afd61757ea4038ad1faaef} [ 48 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 17:37:10.848 [DEBU] {6822b5cb47afd61757ea4038ad1faaef} [ 15 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 17:50:57.993 [DEBU] {50d2e26208b0d617b692ca4162caed62} [ 38 ms] [default] [think-sso] [rows:12 ] SHOW FULL COLUMNS FROM `user`
+2024-06-07 17:50:58.010 [DEBU] {50d2e26208b0d617b692ca4162caed62} [ 16 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 17:50:58.018 [DEBU] {50d2e26208b0d617b692ca4162caed62} [  7 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-07 17:50:58.035 [DEBU] {50d2e26208b0d617b692ca4162caed62} [ 15 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 17:57:09.922 [DEBU] {e0f7bff15eb0d617b992ca41a08a94d6} [203 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 17:57:09.937 [DEBU] {e0f7bff15eb0d617b992ca41a08a94d6} [ 15 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 18:00:21.017 [DEBU] {44a216798bb0d617bd92ca41996ad070} [ 50 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 18:00:21.031 [DEBU] {44a216798bb0d617bd92ca41996ad070} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 18:02:19.903 [DEBU] {887e9527a7b0d617c092ca4160d8ea02} [ 45 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 18:02:19.916 [DEBU] {887e9527a7b0d617c092ca4160d8ea02} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 18:03:39.946 [DEBU] {74b3e6cab9b0d617c492ca4122f8356d} [ 38 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 18:03:39.960 [DEBU] {74b3e6cab9b0d617c492ca4122f8356d} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 18:07:15.227 [DEBU] {04fe37eaebb0d617c792ca419c869741} [ 45 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-07 18:07:15.243 [DEBU] {04fe37eaebb0d617c792ca419c869741} [ 14 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-07 18:18:08.540 [DEBU] {a44a1d0784b1d6175668f36d7439e7c8} [ 37 ms] [default] [think-sso] [rows:12 ] SHOW FULL COLUMNS FROM `user`
+2024-06-07 18:18:08.556 [DEBU] {a44a1d0784b1d6175668f36d7439e7c8} [ 15 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL

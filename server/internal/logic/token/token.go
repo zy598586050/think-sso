@@ -69,7 +69,7 @@ func (s *sToken) CheckToken(ctx context.Context, token string) (err error) {
 			// 过期前10分钟内自动刷新Token
 			ttl, err := g.Redis().TTL(ctx, prefix+token)
 			utility.ErrIsNil(ctx, err, "Redis获取过期时间失败")
-			if ttl <= 600 {
+			if ttl <= 600 && g.RequestFromCtx(ctx).Request.URL.Path != "/api/v1/check/auth" {
 				user, err := gjson.DecodeToJson(userJson.String())
 				utility.ErrIsNil(ctx, err, "Redis解析用户失败")
 				s.CreateToken(ctx, &model.User{

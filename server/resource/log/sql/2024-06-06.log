@@ -6,3 +6,7 @@
 2024-06-06 15:29:00.719 [DEBU] {b88acab9b459d617ef3c0c3de92d25b4} [ 17 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
 2024-06-06 15:29:00.742 [DEBU] {b88acab9b459d617ef3c0c3de92d25b4} [ 23 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
 2024-06-06 15:29:00.760 [DEBU] {b88acab9b459d617ef3c0c3de92d25b4} [ 16 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
+2024-06-06 20:55:33.133 [DEBU] {dcad6873866bd61786c7fa2af09a9327} [ 37 ms] [default] [think-sso] [rows:12 ] SHOW FULL COLUMNS FROM `user`
+2024-06-06 20:55:33.166 [DEBU] {dcad6873866bd61786c7fa2af09a9327} [ 31 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE (`email`='598586050@qq.com') AND `delete_time` IS NULL
+2024-06-06 20:55:33.174 [DEBU] {dcad6873866bd61786c7fa2af09a9327} [  8 ms] [default] [think-sso] [rows:2  ] SHOW TABLES
+2024-06-06 20:55:33.188 [DEBU] {dcad6873866bd61786c7fa2af09a9327} [ 13 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`password`,`code`,`code_time`,`app_ids`,`create_time`,`update_time`,`delete_time` FROM `user` WHERE ((`email`='598586050@qq.com') AND (`password`='123456')) AND `delete_time` IS NULL LIMIT 1
