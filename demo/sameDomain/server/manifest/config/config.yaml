@@ -1,0 +1,13 @@
+server:
+  address:     ":8368"
+  openapiPath: "/api.json"
+  swaggerPath: "/swagger"
+
+logger:
+  level : "all"
+  stdout: true
+
+# Token
+token:
+  excludePaths:
+    - "/api/v1/login/code"

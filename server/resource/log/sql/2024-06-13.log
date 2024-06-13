@@ -93,3 +93,4 @@
 2024-06-13 14:59:28.312 [DEBU] {08496c0b287ed8178757da20fcec8b9a} [ 12 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`app_ids`,`create_time`,`update_time` FROM `user` WHERE (`id`=1) AND `delete_time` IS NULL LIMIT 1
 2024-06-13 14:59:28.324 [DEBU] {08496c0b287ed8178757da20fcec8b9a} [ 10 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`url` FROM `application` WHERE (id In('1')) AND `delete_time` IS NULL
 2024-06-13 14:59:54.322 [DEBU] {f09bcd182e7ed81775c4a3469b81128d} [ 30 ms] [default] [think-sso] [rows:1  ] SELECT COUNT(1) FROM `user` WHERE `delete_time` IS NULL
+2024-06-13 14:59:54.329 [DEBU] {f09bcd182e7ed81775c4a3469b81128d} [  6 ms] [default] [think-sso] [rows:1  ] SELECT `id`,`name`,`avatar`,`phone`,`email`,`app_ids`,`create_time`,`update_time` FROM `user` WHERE `delete_time` IS NULL LIMIT 0,10
