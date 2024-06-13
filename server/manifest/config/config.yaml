@@ -7,16 +7,22 @@ logger:
   level : "all"
   stdout: true
 
-# jwtToken
-jwt:
+# Token
+token:
   salt: "Jk3r8NzoX2Pb6WQu"
   prefix: "ThinkSSO:"
   signe: "ThinkSSO-SIGNE"
-  exp: 30
+  exp: 120 #分钟
+  refresh: 10 #分钟
   excludePaths:
     - "/api/v1/login/email"
     - "/api/v1/login/phone"
     - "/api/v1/login/code"
+
+# Cookie
+cookie:
+  domain: "sso.cn"
+  isSame: false # 是否是同域
 
 # 数据库
 database:

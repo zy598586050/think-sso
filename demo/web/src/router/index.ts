@@ -4,7 +4,7 @@ import { h } from 'vue'
 import { createDiscreteApi, NIcon } from 'naive-ui'
 import { UserCertification } from '@vicons/carbon'
 import { getCookie, getQueryParam } from '@/utils'
-import { Login } from '@/api/user'
+import { Login, UserInfo } from '@/api/user'
 import { useUserStore } from '@/store'
 
 const { loadingBar } = createDiscreteApi(['loadingBar'])
@@ -62,9 +62,11 @@ router.beforeEach((to, _, next) => {
         next()
     } else {
         if (code) {
-            Login({ code }).then(result => {
-                useUserStore().setUserInfo(result?.data)
-                //window.location.reload()
+            Login({ code }).then(() => {
+                UserInfo().then(result => {
+                    useUserStore().setUserInfo(result?.data)
+                    window.location.href = window.location.origin
+                })
             })
         } else {
             window.location.href = `${import.meta.env.VITE_SSO_URL}${window.location.href}`

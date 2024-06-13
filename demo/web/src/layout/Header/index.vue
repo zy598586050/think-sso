@@ -26,6 +26,7 @@ import { SunnyOutline, MoonOutline } from '@vicons/ionicons5'
 import { useAppStore, useUserStore } from '@/store'
 import { useRouter } from 'vue-router'
 import { useTheme } from '@/hooks/useTheme'
+import { Logout } from '@/api/user'
 
 
 const { isDark } = useTheme()
@@ -63,8 +64,10 @@ const handleSelect = (key: string) => {
                 positiveText: '确定',
                 negativeText: '取消',
                 onPositiveClick: () => {
-                    userStore.clearUserInfo()
-                    router.push('/login')
+                    Logout().then(() => {
+                        userStore.clearUserInfo()
+                        router.push('/login')
+                    })
                 }
             })
             break;

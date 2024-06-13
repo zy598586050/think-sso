@@ -7,11 +7,13 @@ package service
 
 import (
 	"context"
+	"think-sso/internal/model"
 )
 
 type (
 	IApplication interface {
-		HasApp(ctx context.Context, AppId string, AppSecret string) (err error)
+		HasApp(ctx context.Context, AppId string, AppSecret string) (app *model.Application, err error)
+		AppListByIds(ctx context.Context, ids string) (res []*model.Application, err error)
 	}
 )
 

@@ -39,7 +39,6 @@ service.interceptors.response.use(
 				closeOnEsc: false,
 				onPositiveClick: () => {
 					useUserStore().clearUserInfo()
-					deleteCookie('think-sso-token')
 					location.href = `${import.meta.env.VITE_SSO_URL}${window.location.href}`
 				}
 			})

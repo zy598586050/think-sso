@@ -1,4 +1,11 @@
 import { defineStore } from 'pinia'
+import { deleteCookie } from '@/utils'
+
+interface Application {
+    id: number;
+    name: string;
+    url: string;
+}
 
 interface User {
     id?: number;
@@ -6,6 +13,7 @@ interface User {
     avatar: string;
     phone: string;
     email: string;
+    apps: Application[];
 }
 
 interface STATE {
@@ -20,7 +28,8 @@ export const useUserStore = defineStore('userStore', {
                 name: '默认昵称',
                 avatar: 'http://ai-game-hk.oss-cn-hongkong.aliyuncs.com/common/hao.jiangg/Datasets/Object3D/Avatar/1.webp',
                 phone: '',
-                email: ''
+                email: '',
+                apps: []
             }
         }
     },
@@ -37,8 +46,10 @@ export const useUserStore = defineStore('userStore', {
                 name: '默认昵称',
                 avatar: 'http://ai-game-hk.oss-cn-hongkong.aliyuncs.com/common/hao.jiangg/Datasets/Object3D/Avatar/1.webp',
                 phone: '',
-                email: ''
+                email: '',
+                apps: []
             }
+            deleteCookie('think-sso-token')
         }
     },
     persist: {

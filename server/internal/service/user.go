@@ -9,13 +9,12 @@ import (
 	"context"
 	v1 "think-sso/api/v1"
 	"think-sso/internal/model"
-	"think-sso/internal/model/entity"
 )
 
 type (
 	IUser interface {
-		GetUserById(ctx context.Context, id int) (res *entity.User, err error)
-		GetUserByEmailPassword(ctx context.Context, req *v1.EmailLoginReq) (res *entity.User, err error)
+		GetUserById(ctx context.Context, id int) (res *model.User, err error)
+		GetUserByEmailPassword(ctx context.Context, req *v1.EmailLoginReq) (res *model.User, err error)
 		GetUserList(ctx context.Context, req *v1.UserListReq) (total int, userList []*model.User, err error)
 	}
 )

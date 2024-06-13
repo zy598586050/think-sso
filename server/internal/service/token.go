@@ -16,6 +16,7 @@ type (
 		ParseJwt(ctx context.Context, token string) (*model.JwtUser, error)
 		CheckToken(ctx context.Context, token string) (err error)
 		RemoveToken(ctx context.Context, token string) (err error)
+		TokenToUser(ctx context.Context) (res *model.User, err error)
 	}
 )
 

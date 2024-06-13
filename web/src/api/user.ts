@@ -18,10 +18,26 @@ export const GetCode = () => {
 }
 
 // 退出登录
-export const Logout = (data: Object) => {
+export const Logout = () => {
     return request({
         url: '/logout',
-        method: 'POST',
-        data,
+        method: 'POST'
+    })
+}
+
+// 用户信息
+export const UserInfo = () => {
+    return request({
+        url: '/user/info',
+        method: 'POST'
+    })
+}
+
+// 用户列表
+export const UserList = (params: Object) => {
+    return request({
+        url: '/user/list',
+        method: 'GET',
+        params
     })
 }

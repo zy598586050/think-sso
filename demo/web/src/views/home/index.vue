@@ -2,9 +2,9 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { TestHome } from '@/api/user'
+import { UserInfo } from '@/api/user'
 
 onMounted(() => {
-    TestHome()
+    UserInfo()
 })
 </script>

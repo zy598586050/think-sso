@@ -12,13 +12,21 @@ type CodeLoginReq struct {
 
 type LoginRes struct {
 	g.Meta `mime:"application/json"`
+}
+
+type UserInfoReq struct {
+	g.Meta `path:"/user/info" tags:"用户信息" method:"post" summary:"用户信息"`
+}
+
+type UserInfoRes struct {
+	g.Meta `mime:"application/json"`
 	model.User
 }
 
-type TestReq struct {
-	g.Meta `path:"/test" tags:"测试" method:"get" summary:"测试"`
+type LogoutReq struct {
+	g.Meta `path:"/logout" tags:"退出登录" method:"post" summary:"退出登录"`
 }
 
-type TestRes struct {
+type LogoutRes struct {
 	g.Meta `mime:"application/json"`
 }

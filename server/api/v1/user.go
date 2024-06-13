@@ -17,3 +17,13 @@ type UserListRes struct {
 	List   []*model.User `json:"list"`
 	common.ListRes
 }
+
+type UserInfoReq struct {
+	g.Meta `path:"/user/info" tags:"用户信息" method:"post" summary:"用户信息"`
+	common.Author
+}
+
+type UserInfoRes struct {
+	g.Meta `mime:"application/json"`
+	model.User
+}

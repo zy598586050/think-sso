@@ -13,6 +13,7 @@ var (
 
 type cUser struct{}
 
+// List 用户列表
 func (c *cUser) List(ctx context.Context, req *v1.UserListReq) (res *v1.UserListRes, err error) {
 	total, userList, err := service.User().GetUserList(ctx, req)
 	res = &v1.UserListRes{
@@ -20,6 +21,18 @@ func (c *cUser) List(ctx context.Context, req *v1.UserListReq) (res *v1.UserList
 		ListRes: common.ListRes{
 			Total: total,
 		},
+	}
+	return
+}
+
+// Info 用户信息
+func (c *cUser) Info(ctx context.Context, req *v1.UserInfoReq) (res *v1.UserInfoRes, err error) {
+	user, err := service.Token().TokenToUser(ctx)
+	if err != nil {
+		return
+	}
+	res = &v1.UserInfoRes{
+		User: *user,
 	}
 	return
 }

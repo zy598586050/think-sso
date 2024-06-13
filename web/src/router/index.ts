@@ -81,7 +81,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, _, next) => {
-    document.title = `${to.meta.title} - ${import.meta.env.VITE_APP_TITLE}`
+    document.title = `${to.meta.title ? to.meta.title + ' - ' : ''}${import.meta.env.VITE_APP_TITLE}`
     loadingBar.start()
     const token = getCookie('think-sso-token')
     const redirect_url = getQueryParam('redirect_url')
@@ -106,7 +106,6 @@ router.beforeEach((to, _, next) => {
             next('/login')
         }
     }
-    // B 有token，正常访问 无token,看有没有code,有code执行登录，无code去授权页授权，然后回来登录得到token
 })
 
 router.afterEach(() => {

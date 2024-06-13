@@ -28,14 +28,16 @@ type DefaultHandlerResponse struct {
 	Data    interface{} `json:"data"    dc:"内容"`
 }
 
+// CORS 跨域
 func (s *sMiddleware) CORS(r *ghttp.Request) {
 	r.Response.CORSDefault()
 	r.Middleware.Next()
 }
 
+// Auth 用户登录状态，权限校验
 func (s *sMiddleware) Auth(r *ghttp.Request) {
 	ctx := r.GetCtx()
-	excludePaths := g.Cfg().MustGet(ctx, "jwt.excludePaths").Strings()
+	excludePaths := g.Cfg().MustGet(ctx, "token.excludePaths").Strings()
 	for _, p := range excludePaths {
 		if gstr.Equal(r.Request.URL.Path, p) {
 			r.Middleware.Next()
@@ -61,6 +63,7 @@ func (s *sMiddleware) Auth(r *ghttp.Request) {
 	r.Middleware.Next()
 }
 
+// MiddlewareHandlerResponse 统一返回
 func (s *sMiddleware) MiddlewareHandlerResponse(r *ghttp.Request) {
 	r.Middleware.Next()
 

@@ -1,10 +1,10 @@
 import request from '@/utils/request'
 
-// 测试业务接口
-export const TestHome = () => {
+// 用户信息
+export const UserInfo = () => {
     return request({
-        url: '/test',
-        method: 'GET'
+        url: '/user/info',
+        method: 'POST'
     })
 }
 
@@ -14,5 +14,13 @@ export const Login = (data: Object) => {
         url: '/login/code',
         method: 'POST',
         data
+    })
+}
+
+// 退出登录
+export const Logout = () => {
+    return request({
+        url: '/logout',
+        method: 'POST'
     })
 }

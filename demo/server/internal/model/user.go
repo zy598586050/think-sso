@@ -5,12 +5,13 @@ import (
 )
 
 type User struct {
-	Id         int         `json:"id"         description:""`
-	Name       string      `json:"name"       description:"用户名"`
-	Avatar     string      `json:"avatar"     description:"头像"`
-	Phone      string      `json:"phone"      description:"手机号"`
-	Email      string      `json:"email"      description:"邮箱"`
-	AppIds     string      `json:"appIds"     description:"用户关联的应用"`
-	CreateTime *gtime.Time `json:"createTime" description:"创建时间"`
-	UpdateTime *gtime.Time `json:"updateTime" description:"修改时间"`
+	Id         int            `json:"id"         description:""`
+	Name       string         `json:"name"       description:"用户名"`
+	Avatar     string         `json:"avatar"     description:"头像"`
+	Phone      string         `json:"phone"      description:"手机号"`
+	Email      string         `json:"email"      description:"邮箱"`
+	AppIds     string         `json:"appIds,omitempty"     description:"用户关联的应用"`
+	Apps       []*Application `json:"apps"`
+	CreateTime *gtime.Time    `json:"createTime" description:"创建时间"`
+	UpdateTime *gtime.Time    `json:"updateTime" description:"修改时间"`
 }

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { createDiscreteApi } from 'naive-ui'
 import { useUserStore } from '@/store'
-import { getCookie, deleteCookie } from '@/utils'
+import { getCookie } from '@/utils'
 
 const { dialog, message } = createDiscreteApi(['dialog', 'message'])
 
@@ -39,7 +39,6 @@ service.interceptors.response.use(
 				closeOnEsc: false,
 				onPositiveClick: () => {
 					useUserStore().clearUserInfo()
-					deleteCookie('think-sso-token')
 					location.href = '/'
 				}
 			})

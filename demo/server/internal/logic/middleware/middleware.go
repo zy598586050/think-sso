@@ -5,7 +5,9 @@ import (
 	"github.com/gogf/gf/v2/encoding/gjson"
 	"github.com/gogf/gf/v2/errors/gcode"
 	"github.com/gogf/gf/v2/errors/gerror"
+	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
+	"github.com/gogf/gf/v2/text/gstr"
 	"io/ioutil"
 	"net/http"
 	"server/internal/service"
@@ -36,6 +38,13 @@ func (s *sMiddleware) CORS(r *ghttp.Request) {
 
 func (s *sMiddleware) Auth(r *ghttp.Request) {
 	ctx := r.GetCtx()
+	excludePaths := g.Cfg().MustGet(ctx, "token.excludePaths").Strings()
+	for _, p := range excludePaths {
+		if gstr.Equal(r.Request.URL.Path, p) {
+			r.Middleware.Next()
+			return
+		}
+	}
 	request, err := http.NewRequestWithContext(ctx, "GET", "http://127.0.0.1:8369/api/v1/check/auth", nil)
 	token, err := utility.GetAuthorization(r)
 	if err != nil {

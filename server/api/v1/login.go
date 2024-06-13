@@ -3,7 +3,6 @@ package v1
 import (
 	"github.com/gogf/gf/v2/frame/g"
 	"think-sso/api/v1/common"
-	"think-sso/internal/model"
 )
 
 type EmailLoginReq struct {
@@ -37,7 +36,6 @@ type CodeRes struct {
 
 type LoginRes struct {
 	g.Meta `mime:"application/json"`
-	model.User
 }
 
 type LogoutReq struct {

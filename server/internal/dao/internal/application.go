@@ -20,26 +20,26 @@ type ApplicationDao struct {
 
 // ApplicationColumns defines and stores column names for table application.
 type ApplicationColumns struct {
-	Id          string //
-	Name        string // 应用名称
-	RedirectUrl string // 应用地址
-	AppId       string // 应用ID
-	AppSecret   string // 应用密钥
-	CreateTime  string // 创建时间
-	UpdateTime  string // 更新时间
-	DeleteTime  string // 删除时间
+	Id         string //
+	Name       string // 应用名称
+	Url        string // 应用地址
+	AppId      string // 应用ID
+	AppSecret  string // 应用密钥
+	CreateTime string // 创建时间
+	UpdateTime string // 更新时间
+	DeleteTime string // 删除时间
 }
 
 // applicationColumns holds the columns for table application.
 var applicationColumns = ApplicationColumns{
-	Id:          "id",
-	Name:        "name",
-	RedirectUrl: "redirect_url",
-	AppId:       "app_id",
-	AppSecret:   "app_secret",
-	CreateTime:  "create_time",
-	UpdateTime:  "update_time",
-	DeleteTime:  "delete_time",
+	Id:         "id",
+	Name:       "name",
+	Url:        "url",
+	AppId:      "app_id",
+	AppSecret:  "app_secret",
+	CreateTime: "create_time",
+	UpdateTime: "update_time",
+	DeleteTime: "delete_time",
 }
 
 // NewApplicationDao creates and returns a new DAO object for table data access.

@@ -11,13 +11,13 @@ import (
 
 // Application is the golang structure of table application for DAO operations like Where/Data.
 type Application struct {
-	g.Meta      `orm:"table:application, do:true"`
-	Id          interface{} //
-	Name        interface{} // 应用名称
-	RedirectUrl interface{} // 应用地址
-	AppId       interface{} // 应用ID
-	AppSecret   interface{} // 应用密钥
-	CreateTime  *gtime.Time // 创建时间
-	UpdateTime  *gtime.Time // 更新时间
-	DeleteTime  *gtime.Time // 删除时间
+	g.Meta     `orm:"table:application, do:true"`
+	Id         interface{} //
+	Name       interface{} // 应用名称
+	Url        interface{} // 应用地址
+	AppId      interface{} // 应用ID
+	AppSecret  interface{} // 应用密钥
+	CreateTime *gtime.Time // 创建时间
+	UpdateTime *gtime.Time // 更新时间
+	DeleteTime *gtime.Time // 删除时间
 }

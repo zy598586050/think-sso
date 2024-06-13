@@ -68,8 +68,8 @@
 import { reactive, ref, computed } from 'vue'
 import { NForm, NFormItem, NInput, NInputGroup, NButton, NCountdown, FormInst, CountdownProps, NIcon, FormItemRule, NTabs, NTabPane } from 'naive-ui'
 import { PhonePortraitOutline, MailOutline, LockOpenOutline } from '@vicons/ionicons5'
-import { LoginEmail, GetCode } from '@/api/user'
-import { getQueryParam, getCookie } from '@/utils'
+import { LoginEmail, GetCode, UserInfo } from '@/api/user'
+import { getQueryParam } from '@/utils'
 import { useUserStore } from '@/store'
 import { useRouter } from 'vue-router'
 
@@ -157,9 +157,13 @@ const handleLogin = (type: number) => {
             LoginEmail({
                 email: formEmail.email,
                 password: formEmail.password
-            }).then((result) => {
+            }).then(() => {
                 isLoading.value = false
-                userStore.setUserInfo(result?.data)
+                // 获取用户信息
+                UserInfo().then((result) => {
+                    userStore.setUserInfo(result?.data)
+                })
+                // 其他系统跳转过来
                 const redirect_url = getQueryParam('redirect_url')
                 if (redirect_url) {
                     GetCode().then(res => {
