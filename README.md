@@ -252,7 +252,7 @@ VITE_SSO_IS_SAME = true
 
 * [cookie设置域名详解](https://blog.csdn.net/bbsyi/article/details/86479867)
 * 具体完整的代码请看 ``demo`` 文件夹下同域和非同域项目
-* 同域如果遇到cookie没有写入的情况，尝试设置重写demain
+* 同域如果遇到cookie没有写入的情况，尝试设置重写domain
 
 ```
 cookieDomainRewrite: {
