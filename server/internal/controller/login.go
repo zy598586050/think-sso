@@ -3,7 +3,6 @@ package controller
 import (
 	"context"
 	"github.com/gogf/gf/v2/crypto/gmd5"
-	"github.com/gogf/gf/v2/encoding/gjson"
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	"think-sso/api/v1"
@@ -48,7 +47,7 @@ func (c *cLogin) Code(ctx context.Context, req *v1.CodeReq) (res *v1.CodeRes, er
 
 // CodeLogin 非同域的时候code登录
 func (c *cLogin) CodeLogin(ctx context.Context, req *v1.CodeLoginReq) (res *v1.LoginRes, err error) {
-	app, err := service.Application().HasApp(ctx, req.AppId, req.AppSecret)
+	_, err = service.Application().HasApp(ctx, req.AppId, req.AppSecret)
 	if err != nil {
 		return
 	}
@@ -62,24 +61,8 @@ func (c *cLogin) CodeLogin(ctx context.Context, req *v1.CodeLoginReq) (res *v1.L
 		return
 	}
 	ttl, _ := g.Redis().TTL(ctx, prefix+req.Code)
-	userJson, _ := g.Redis().Get(ctx, prefix+token.String())
-	user, err := gjson.DecodeToJson(userJson.String())
-	if err != nil {
-		return
-	}
-	u, err := service.User().GetUserById(ctx, user.Get("id").Int())
-	if err != nil {
-		return
-	}
-	apps, _ := service.Application().AppListByIds(ctx, u.AppIds)
-	u.Apps = apps
 	g.Redis().Del(ctx, prefix+req.Code)
-	isSame := g.Cfg().MustGet(ctx, "cookie.isSame").Bool()
-	domain := g.Cfg().MustGet(ctx, "cookie.domain").String()
-	if !isSame {
-		domain = app.Url
-	}
-	g.RequestFromCtx(ctx).Cookie.SetCookie("think-sso-token", token.String(), domain, "/", time.Duration(ttl)*time.Second)
+	g.RequestFromCtx(ctx).Cookie.SetCookie("think-sso-token", token.String(), "", "/", time.Duration(ttl)*time.Second)
 	return
 }
 

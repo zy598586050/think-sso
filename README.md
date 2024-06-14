@@ -179,3 +179,83 @@ func (c *cLogin) Logout(ctx context.Context, req *v1.LogoutReq) (res *v1.LogoutR
 	return
 }
 ```
+
+##### 5. SSO后端服务中设置域
+
+``manifest/config/config.yaml`` 文件中设置
+
+```
+# Cookie
+cookie:
+  domain: "login.sso.cn" # 域
+```
+
+##### 6. SSO前端服务中设置模式
+
+``.env.xxxx`` 文件中设置
+
+```
+# 是否是同域名模式
+VITE_SSO_IS_SAME = false
+```
+
+#### 同域单点登录模式
+
+![非同域单点登录系统](/images/2.png)
+
+##### 1. 业务系统前端路由守卫
+
+```
+router.beforeEach((to, _, next) => {
+    document.title = `${to.meta.title} - ${import.meta.env.VITE_APP_TITLE}`
+    loadingBar.start()
+    const token = getCookie('think-sso-token')
+    if (token) {
+        next()
+    } else {
+        window.location.href = `${import.meta.env.VITE_SSO_URL}${window.location.href}`
+    }
+})
+```
+
+##### 2. 业务系统前端统一请求 (和非同域一样)
+
+##### 3. 业务系统后端中间件 (和非同域一样)
+
+##### 4. 业务系统后端需要实现两个接口 (比非同域少一个登录接口)
+
+* ``/user/info`` 获取用户信息
+* ``/logout`` 退出登录
+
+实际就是做了一下接口的转发，当然你也可以将这个些接口从前端直接调用，但是需要前端配合nginx做跨域处理才可以实现。
+
+##### 5. SSO后端服务中设置域
+
+``manifest/config/config.yaml`` 文件中设置
+
+```
+# Cookie
+cookie:
+  domain: ".sso.cn" # 域
+```
+
+##### 6. SSO前端服务中设置模式
+
+``.env.xxxx`` 文件中设置
+
+```
+# 是否是同域名模式
+VITE_SSO_IS_SAME = true
+```
+
+#### 注意
+
+* [cookie设置域名详解](https://blog.csdn.net/bbsyi/article/details/86479867)
+* 具体完整的代码请看 ``demo`` 文件夹下同域和非同域项目
+* 同域如果遇到cookie没有写入的情况，尝试设置重写demain
+
+```
+cookieDomainRewrite: {
+	'*': '.sso.cn'
+}
+```

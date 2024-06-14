@@ -3,9 +3,7 @@ import Layout from '@/layout/index.vue'
 import { h } from 'vue'
 import { createDiscreteApi, NIcon } from 'naive-ui'
 import { UserCertification } from '@vicons/carbon'
-import { getCookie, getQueryParam } from '@/utils'
-import { Login, UserInfo } from '@/api/user'
-import { useUserStore } from '@/store'
+import { getCookie } from '@/utils'
 
 const { loadingBar } = createDiscreteApi(['loadingBar'])
 
@@ -57,20 +55,10 @@ router.beforeEach((to, _, next) => {
     document.title = `${to.meta.title} - ${import.meta.env.VITE_APP_TITLE}`
     loadingBar.start()
     const token = getCookie('think-sso-token')
-    const code = getQueryParam('code')
     if (token) {
         next()
     } else {
-        if (code) {
-            Login({ code }).then(() => {
-                UserInfo().then(result => {
-                    useUserStore().setUserInfo(result?.data)
-                    window.location.href = window.location.origin
-                })
-            })
-        } else {
-            window.location.href = `${import.meta.env.VITE_SSO_URL}${window.location.href}`
-        }
+        window.location.href = `${import.meta.env.VITE_SSO_URL}${window.location.href}`
     }
 })
 

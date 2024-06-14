@@ -10,10 +10,29 @@ export const getCookie = (name: string) => {
     return null;
 }
 
-// 删除Cookie
-export const deleteCookie = (name: string) => {
-    // 设置该cookie的过期时间为过去的一个时间点
-    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+// 删除所有Cookie
+export const deleteAllCookies = () => {
+    const cookies = document.cookie.split(';');
+
+    for (const cookie of cookies) {
+        const eqPos = cookie.indexOf('=');
+        const name = eqPos > -1 ? cookie.slice(0, eqPos).trim() : cookie.trim();
+
+        // 获取当前域名的所有部分
+        const domainParts = window.location.hostname.split('.');
+
+        // 遍历域名的不同级别
+        for (let i = 0; i < domainParts.length; i++) {
+            const domain = domainParts.slice(i).join('.');
+
+            // 删除当前域名和子域名的cookie
+            document.cookie = `${name}=;path=/;domain=${domain};expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+            document.cookie = `${name}=;path=/;domain=.${domain};expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+        }
+
+        // 确保还删除了当前域名下的cookie（无论是否有子域名前缀）
+        document.cookie = `${name}=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+    }
 }
 
 // 从URL中获取参数

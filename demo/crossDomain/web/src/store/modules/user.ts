@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { deleteCookie } from '@/utils'
+import { deleteAllCookies } from '@/utils'
 
 interface Application {
     id: number;
@@ -49,7 +49,7 @@ export const useUserStore = defineStore('userStore', {
                 email: '',
                 apps: []
             }
-            deleteCookie('think-sso-token')
+            deleteAllCookies()
         }
     },
     persist: {

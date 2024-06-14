@@ -21,8 +21,7 @@ token:
 
 # Cookie
 cookie:
-  domain: "sso.cn"
-  isSame: false # 是否是同域
+  domain: "login.sso.cn" # 域
 
 # 数据库
 database:

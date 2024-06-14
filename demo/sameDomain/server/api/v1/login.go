@@ -5,15 +5,6 @@ import (
 	"server/internal/model"
 )
 
-type CodeLoginReq struct {
-	g.Meta `path:"/login/code" tags:"授权登录" method:"post" summary:"授权登录"`
-	Code   string `p:"code" v:"required#code不能为空"`
-}
-
-type LoginRes struct {
-	g.Meta `mime:"application/json"`
-}
-
 type UserInfoReq struct {
 	g.Meta `path:"/user/info" tags:"用户信息" method:"post" summary:"用户信息"`
 }

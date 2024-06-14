@@ -166,9 +166,13 @@ const handleLogin = (type: number) => {
                 // 其他系统跳转过来
                 const redirect_url = getQueryParam('redirect_url')
                 if (redirect_url) {
-                    GetCode().then(res => {
-                        window.location.href = redirect_url + `${redirect_url.includes('?') ? '&' : '?'}code=${res.data.code}`
-                    })
+                    if (import.meta.env.VITE_SSO_IS_SAME === 'true') {
+                        window.location.href = redirect_url
+                    } else {
+                        GetCode().then(res => {
+                            window.location.href = redirect_url + `${redirect_url.includes('?') ? '&' : '?'}code=${res.data.code}`
+                        })
+                    }
                 } else {
                     router.push('/user')
                 }

@@ -47,7 +47,7 @@ export default defineConfig((mode: ConfigEnv) => {
           target: 'http://127.0.0.1:8369',
           changeOrigin: true,
           cookieDomainRewrite: {
-            '*': ''
+            '*': '.sso.cn'
           }
         }
       }

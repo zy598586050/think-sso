@@ -66,7 +66,7 @@ const handleSelect = (key: string) => {
                 onPositiveClick: () => {
                     Logout().then(() => {
                         userStore.clearUserInfo()
-                        router.push('/login')
+                        window.location.href = `${import.meta.env.VITE_SSO_URL}${window.location.href}`
                     })
                 }
             })

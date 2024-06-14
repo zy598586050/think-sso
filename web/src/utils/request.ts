@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { createDiscreteApi } from 'naive-ui'
 import { useUserStore } from '@/store'
-import { getCookie } from '@/utils'
+import { getCookie, getQueryParam } from '@/utils'
 
 const { dialog, message } = createDiscreteApi(['dialog', 'message'])
 
@@ -30,18 +30,25 @@ service.interceptors.response.use(
 		const res = response?.data
 		const code = response?.data?.code
 		if (code === 61) {
-			dialog.warning({
-				title: '提示',
-				content: '登录状态已过期，请重新登录',
-				positiveText: '确定',
-				maskClosable: false,
-				closable: false,
-				closeOnEsc: false,
-				onPositiveClick: () => {
-					useUserStore().clearUserInfo()
-					location.href = '/'
-				}
-			})
+			// 其他系统跳转过来
+			const redirect_url = getQueryParam('redirect_url')
+			if (redirect_url) {
+				useUserStore().clearUserInfo()
+				window.location.href = `/?redirect_url=${redirect_url}`
+			} else {
+				dialog.warning({
+					title: '提示',
+					content: '登录状态已过期，请重新登录',
+					positiveText: '确定',
+					maskClosable: false,
+					closable: false,
+					closeOnEsc: false,
+					onPositiveClick: () => {
+						useUserStore().clearUserInfo()
+						window.location.href = '/'
+					}
+				})
+			}
 		} else if (code !== 0) {
 			message.error(res.message)
 			return Promise.reject(new Error(res.message))
